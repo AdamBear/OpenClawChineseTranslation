@@ -1,0 +1,24 @@
+{
+  "$schema": "./schema.json",
+  "name": "openclaw-zh",
+  "version": "1.0.0",
+  "description": "OpenClaw 简体中文汉化配置",
+  "upstream": {
+    "repo": "openclaw/openclaw",
+    "url": "https://github.com/openclaw/openclaw"
+  },
+  "modules": {
+    "cli": [
+      "cli/banner.json",
+      "cli/tagline.json"
+    ],
+    "wizard": [
+      "wizard/onboarding.json",
+      "wizard/security.json"
+    ],
+    "commands": [
+      "commands/auth-choice.json",
+      "commands/helpers.json"
+    ]
+  }
+}
