@@ -6,8 +6,12 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 > 🦞 **OpenClaw 汉化发行版** | ⚡️ **每小时自动同步官方更新** | 全自动构建发布
->
-> 🔥 **访问官方网站**：https://openclaw.qt.cool/
+
+<p align="center">
+  <a href="https://openclaw.qt.cool/"><img src="https://img.shields.io/badge/🔥_官方网站-openclaw.qt.cool-dc2626?style=for-the-badge" alt="官方网站"></a>
+  &nbsp;&nbsp;
+  <a href="https://1186258278.github.io/OpenClawChineseTranslation/"><img src="https://img.shields.io/badge/📦_GitHub_Pages-备用入口-333?style=for-the-badge" alt="GitHub Pages"></a>
+</p>
 
 ---
 
@@ -214,9 +218,19 @@ npm install -g openclaw
 
 ## 🔗 相关链接
 
+### 汉化版入口
+
 | 链接 | 说明 |
 |------|------|
-| [OpenClaw 官网](https://openclaw.ai/) | 官方网站 |
+| 🔥 [openclaw.qt.cool](https://openclaw.qt.cool/) | **汉化版官网**（推荐） |
+| 📦 [GitHub Pages](https://1186258278.github.io/OpenClawChineseTranslation/) | 备用下载页 |
+| 📚 [npm 包](https://www.npmjs.com/package/@qingchencloud/openclaw-zh) | npm 安装源 |
+
+### 上游项目
+
+| 链接 | 说明 |
+|------|------|
+| [OpenClaw 官网](https://openclaw.ai/) | 原版官方网站 |
 | [OpenClaw GitHub](https://github.com/openclaw/openclaw) | 上游仓库 |
 | [OpenClaw Discord](https://discord.gg/openclaw) | 官方社区 |
 | [ClawHub](https://clawhub.dev/) | 技能市场 |
