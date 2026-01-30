@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
   "name": "openclaw-zh",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "OpenClaw 简体中文汉化配置",
   "upstream": {
     "repo": "openclaw/openclaw",
@@ -17,11 +17,20 @@
       "wizard/onboarding.json",
       "wizard/security.json"
     ],
+    "tui": [
+      "tui/waiting.json",
+      "tui/commands.json"
+    ],
     "commands": [
       "commands/auth-choice.json",
       "commands/helpers.json",
       "commands/doctor.json",
-      "commands/doctor-security.json"
+      "commands/doctor-security.json",
+      "commands/status.json",
+      "commands/update.json",
+      "commands/skills.json",
+      "commands/channels.json",
+      "commands/uninstall.json"
     ]
   }
 }
