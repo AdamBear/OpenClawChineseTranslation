@@ -111,9 +111,19 @@
 ### Windows (PowerShell)
 
 ```powershell
-# 下载并执行安装脚本
-Invoke-WebRequest -Uri "https://cdn.jsdelivr.net/gh/1186258278/OpenClawChineseTranslation@main/install.ps1" -OutFile "install.ps1"; .\install.ps1
+# 下载并执行安装脚本（注意：需要 UTF-8 编码）
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+Invoke-WebRequest -Uri "https://cdn.jsdelivr.net/gh/1186258278/OpenClawChineseTranslation@main/install.ps1" -OutFile "install.ps1" -Encoding UTF8; powershell -ExecutionPolicy Bypass -File ".\install.ps1"
 ```
+
+> **如果遇到中文乱码问题**，请使用以下命令：
+> ```powershell
+> # 方法1：直接通过 npm 安装（推荐）
+> npm install -g @qingchencloud/openclaw-zh@latest
+> 
+> # 方法2：使用 PowerShell 7+（支持 UTF-8）
+> pwsh -Command "irm https://cdn.jsdelivr.net/gh/1186258278/OpenClawChineseTranslation@main/install.ps1 | iex"
+> ```
 
 ### Linux / macOS
 
