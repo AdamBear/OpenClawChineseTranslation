@@ -21,16 +21,26 @@ PANEL_DIR = os.path.join(ROOT_DIR, 'translations', 'panel')
 # 尝试多个可能的构建目录路径
 POSSIBLE_BUILD_DIRS = [
     os.path.join(ROOT_DIR, 'openclaw', 'dist', 'control-ui'),  # 标准路径
+    os.path.join(ROOT_DIR, 'openclaw', 'dist', 'gateway', 'control-ui'),  # 新路径1
+    os.path.join(ROOT_DIR, 'openclaw', 'dist', 'web'),  # 新路径2
     os.path.join(ROOT_DIR, 'dist', 'control-ui'),              # 备选路径
     'openclaw/dist/control-ui',                                  # 相对路径
+    'openclaw/dist/gateway/control-ui',                          # 相对路径新
+    'openclaw/dist/web',                                          # 相对路径新
     'dist/control-ui',                                           # 相对路径备选
 ]
+
+def is_dashboard_dir(path):
+    """检查是否是 Dashboard 目录（包含 index.html 和 assets）"""
+    assets_dir = os.path.join(path, 'assets')
+    index_html = os.path.join(path, 'index.html')
+    return os.path.isdir(assets_dir) and os.path.isfile(index_html)
 
 def find_build_dir():
     """查找构建目录"""
     # 先尝试固定路径
     for path in POSSIBLE_BUILD_DIRS:
-        if os.path.exists(path):
+        if os.path.exists(path) and is_dashboard_dir(path):
             return path
     
     # 动态查找 control-ui 目录
@@ -43,14 +53,18 @@ def find_build_dir():
         if result.returncode == 0 and result.stdout.strip():
             paths = result.stdout.strip().split('\n')
             for path in paths:
-                if 'dist' in path and os.path.isdir(path):
+                # 排除 node_modules，确保是有效的 Dashboard 目录
+                if 'dist' in path and 'node_modules' not in path and is_dashboard_dir(path):
                     return path
     except Exception as e:
         print(f"⚠️ find 命令失败: {e}")
     
-    # 尝试查找任何包含 assets 子目录的 dist 目录
+    # 尝试查找任何包含 assets 和 index.html 的 dist 目录（排除 node_modules）
     for root, dirs, files in os.walk('.'):
-        if 'assets' in dirs and 'dist' in root:
+        # 排除 node_modules
+        if 'node_modules' in root:
+            continue
+        if 'assets' in dirs and 'dist' in root and is_dashboard_dir(root):
             return root
     
     return None

@@ -157,6 +157,12 @@ jobs:
           echo "📁 openclaw/dist/control-ui/assets/ 内容:"
           ls -la openclaw/dist/control-ui/assets/ || echo "❌ assets 不存在"
           echo ""
+          echo "🔍 搜索所有包含 index.html 的目录:"
+          find openclaw/dist -name "index.html" -type f 2>/dev/null | head -10
+          echo ""
+          echo "🔍 搜索所有 assets 目录 (排除 node_modules):"
+          find openclaw/dist -name "assets" -type d ! -path "*/node_modules/*" 2>/dev/null | head -10
+          echo ""
           echo "🦞 开始注入功能面板..."
           python3 scripts/inject_panel.py
           echo ""
